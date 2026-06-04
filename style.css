@@ -78,18 +78,6 @@ button {
 }
 
 .footer {
-    margin-top: 40px;
-    padding: 15px 10px;
-    text-align: center;
-    font-size: 14px;
-    color: #555;
-}
-
-.footer p {
-    margin: 0;
-}
-
-.footer {
     position: fixed;
     bottom: 10px;
     left: 0;
@@ -97,6 +85,10 @@ button {
     text-align: center;
     font-size: 14px;
     color: #555;
+}
+
+.footer p {
+    margin: 0;
 }
 
 @keyframes fadeIn {
