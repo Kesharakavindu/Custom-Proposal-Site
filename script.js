@@ -3,10 +3,11 @@ const container = document.getElementById("questionContainer");
 
 const yesBtn = document.getElementById("yesBtn");
 const resultContainer = document.getElementById("resultContainer");
+const buttonsArea = document.querySelector(".buttons");
 
 container.addEventListener("mousemove", (e) => {
   const btnRect = noBtn.getBoundingClientRect();
-  const containerRect = container.getBoundingClientRect();
+  const areaRect = buttonsArea.getBoundingClientRect();
 
   const mouseX = e.clientX;
   const mouseY = e.clientY;
@@ -19,17 +20,14 @@ container.addEventListener("mousemove", (e) => {
 
   const distance = Math.sqrt(diffX * diffX + diffY * diffY);
 
-  // mouse eka langa awoth witharai
   if (distance < 120) {
-    // normalize (direction math)
-    const force = 120 / distance;
+    const force = 120 / Math.max(distance, 1);
 
     let moveX = diffX * force;
     let moveY = diffY * force;
 
-    // limit container athule thiyanna
-    const maxX = containerRect.width / 2 - btnRect.width / 2;
-    const maxY = containerRect.height / 2 - btnRect.height / 2;
+    const maxX = areaRect.width / 2 - btnRect.width / 2;
+    const maxY = areaRect.height / 2 - btnRect.height / 2;
 
     moveX = Math.max(-maxX, Math.min(maxX, moveX));
     moveY = Math.max(-maxY, Math.min(maxY, moveY));
@@ -45,9 +43,11 @@ yesBtn.addEventListener("click", () => {
 
 container.addEventListener("touchmove", (e) => {
   const touch = e.touches[0];
+
   const fakeEvent = new MouseEvent("mousemove", {
     clientX: touch.clientX,
     clientY: touch.clientY
   });
+
   container.dispatchEvent(fakeEvent);
 });
