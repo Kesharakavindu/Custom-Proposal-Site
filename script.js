@@ -1,33 +1,26 @@
 const noBtn = document.getElementById("noBtn");
-const container = document.getElementById("questionContainer");
-
 const yesBtn = document.getElementById("yesBtn");
+const container = document.getElementById("questionContainer");
 const resultContainer = document.getElementById("resultContainer");
 
-container.addEventListener("mousemove", (e) => {
+function moveNoButton(clientX, clientY) {
   const btnRect = noBtn.getBoundingClientRect();
   const containerRect = container.getBoundingClientRect();
-
-  const mouseX = e.clientX;
-  const mouseY = e.clientY;
 
   const btnCenterX = btnRect.left + btnRect.width / 2;
   const btnCenterY = btnRect.top + btnRect.height / 2;
 
-  let diffX = btnCenterX - mouseX;
-  let diffY = btnCenterY - mouseY;
+  let diffX = btnCenterX - clientX;
+  let diffY = btnCenterY - clientY;
 
   const distance = Math.sqrt(diffX * diffX + diffY * diffY);
 
-  // mouse eka langa awoth witharai
   if (distance < 120) {
-    // normalize (direction math)
-    const force = 120 / distance;
+    const force = 120 / Math.max(distance, 1);
 
     let moveX = diffX * force;
     let moveY = diffY * force;
 
-    // limit container athule thiyanna
     const maxX = containerRect.width / 2 - btnRect.width / 2;
     const maxY = containerRect.height / 2 - btnRect.height / 2;
 
@@ -36,18 +29,24 @@ container.addEventListener("mousemove", (e) => {
 
     noBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
   }
+}
+
+container.addEventListener("mousemove", (e) => {
+  moveNoButton(e.clientX, e.clientY);
 });
+
+container.addEventListener(
+  "touchmove",
+  (e) => {
+    e.preventDefault();
+
+    const touch = e.touches[0];
+    moveNoButton(touch.clientX, touch.clientY);
+  },
+  { passive: false }
+);
 
 yesBtn.addEventListener("click", () => {
   container.style.display = "none";
   resultContainer.style.display = "block";
-});
-
-container.addEventListener("touchmove", (e) => {
-  const touch = e.touches[0];
-  const fakeEvent = new MouseEvent("mousemove", {
-    clientX: touch.clientX,
-    clientY: touch.clientY
-  });
-  container.dispatchEvent(fakeEvent);
 });
