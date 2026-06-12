@@ -4,44 +4,37 @@
   box-sizing: border-box;
 }
 
-html, body {
-  min-height: 100%;
-}
-
 body {
-  background: #ffd6e0;
-  font-family: Arial, sans-serif;
   min-height: 100svh;
+  background: #ffd6e0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px 15px 55px;
+  font-family: Arial, sans-serif;
+  padding: 20px 15px 60px;
   overflow-x: hidden;
 }
 
 .title {
-  text-align: center;
-  font-size: clamp(28px, 8vw, 45px);
   margin-bottom: 20px;
+  text-align: center;
+  font-size: clamp(28px, 7vw, 45px);
 }
 
 .question-container {
   background: #fff0f5;
-  width: min(92vw, 340px);
-  padding: 25px;
+  padding: 30px;
   border-radius: 20px;
   text-align: center;
   position: relative;
+  width: min(300px, 90vw);
 }
 
 .image {
-  width: min(35vw, 120px);
+  width: 120px;
+  max-width: 100%;
   margin-bottom: 10px;
-}
-
-.question-container h2 {
-  font-size: clamp(20px, 5vw, 26px);
 }
 
 .buttons {
@@ -63,13 +56,13 @@ button {
 #yesBtn {
   background: #ff4d6d;
   color: white;
-  left: 15%;
+  left: 40px;
 }
 
 #noBtn {
   background: #ff8fa3;
   color: white;
-  right: 15%;
+  right: 40px;
 }
 
 .result-container {
@@ -78,7 +71,7 @@ button {
 }
 
 #result-img {
-  width: min(80vw, 260px);
+  width: min(250px, 85vw);
   animation: fadeIn 0.5s ease;
 }
 
@@ -88,8 +81,8 @@ button {
   left: 0;
   width: 100%;
   text-align: center;
-  font-size: 13px;
-  color: rgba(85,85,85,0.7);
+  font-size: 14px;
+  color: rgba(85, 85, 85, 0.7);
   padding: 0 10px;
 }
 
@@ -97,19 +90,38 @@ button {
   margin: 0;
 }
 
+@media (max-width: 768px) {
+
+  .question-container {
+    width: 85vw;
+    max-width: 340px;
+  }
+
+  .image {
+    width: 100px;
+  }
+}
+
 @media (max-width: 480px) {
+
   body {
-    padding-top: 15px;
-    padding-bottom: 55px;
+    min-height: 100svh;
+    justify-content: center;
+    padding: 15px 10px 55px;
   }
 
   .title {
+    font-size: 30px;
     margin-bottom: 15px;
   }
 
   .question-container {
-    width: 92vw;
+    width: 88vw;
     padding: 20px;
+  }
+
+  .image {
+    width: 90px;
   }
 
   .buttons {
