@@ -34,7 +34,8 @@ body {
   border-radius: 20px;
   text-align: center;
   position: relative;
-  width: clamp(300px, 40vw, 300px);
+  width: 340px;
+  max-width: calc(100vw - 30px);
 }
 
 .image {
