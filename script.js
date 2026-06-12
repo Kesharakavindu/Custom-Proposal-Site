@@ -38,16 +38,21 @@ container.addEventListener("mousemove", (e) => {
   }
 });
 
-yesBtn.addEventListener("click", () => {
-  container.style.display = "none";
-  resultContainer.style.display = "block";
+container.addEventListener("mousemove", (e) => {
+  runNoButtonMove(e.clientX, e.clientY);
+});
+
+container.addEventListener("touchstart", (e) => {
+  const touch = e.touches[0];
+  runNoButtonMove(touch.clientX, touch.clientY);
 });
 
 container.addEventListener("touchmove", (e) => {
   const touch = e.touches[0];
-  const fakeEvent = new MouseEvent("mousemove", {
-    clientX: touch.clientX,
-    clientY: touch.clientY
-  });
-  container.dispatchEvent(fakeEvent);
+  runNoButtonMove(touch.clientX, touch.clientY);
+});
+
+yesBtn.addEventListener("click", () => {
+  container.style.display = "none";
+  resultContainer.style.display = "block";
 });
