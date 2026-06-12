@@ -56,3 +56,11 @@ yesBtn.addEventListener("click", () => {
   container.style.display = "none";
   resultContainer.style.display = "block";
 });
+
+document.addEventListener("dragstart", (e) => {
+  e.preventDefault();
+});
+
+document.addEventListener("selectstart", (e) => {
+  e.preventDefault();
+});
