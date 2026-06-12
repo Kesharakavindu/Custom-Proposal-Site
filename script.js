@@ -3,44 +3,33 @@ const yesBtn = document.getElementById("yesBtn");
 const container = document.getElementById("questionContainer");
 const resultContainer = document.getElementById("resultContainer");
 
-function moveNoButton(clientX, clientY) {
-  const btnRect = noBtn.getBoundingClientRect();
+function moveNoButton() {
   const containerRect = container.getBoundingClientRect();
+  const btnRect = noBtn.getBoundingClientRect();
 
-  const btnCenterX = btnRect.left + btnRect.width / 2;
-  const btnCenterY = btnRect.top + btnRect.height / 2;
+  const maxX = containerRect.width - btnRect.width - 20;
+  const maxY = containerRect.height - btnRect.height - 20;
 
-  let diffX = btnCenterX - clientX;
-  let diffY = btnCenterY - clientY;
+  const randomX = Math.floor(Math.random() * maxX);
+  const randomY = Math.floor(Math.random() * maxY);
 
-  const distance = Math.sqrt(diffX * diffX + diffY * diffY);
-
-  if (distance < 120) {
-    const force = 120 / Math.max(distance, 1);
-
-    let moveX = diffX * force;
-    let moveY = diffY * force;
-
-    const maxX = containerRect.width / 2 - btnRect.width / 2;
-    const maxY = containerRect.height / 2 - btnRect.height / 2;
-
-    moveX = Math.max(-maxX, Math.min(maxX, moveX));
-    moveY = Math.max(-maxY, Math.min(maxY, moveY));
-
-    noBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
-  }
+  noBtn.style.left = randomX + "px";
+  noBtn.style.top = randomY + "px";
+  noBtn.style.right = "auto";
+  noBtn.style.transform = "none";
 }
 
-container.addEventListener("mousemove", (e) => {
-  moveNoButton(e.clientX, e.clientY);
-});
+noBtn.addEventListener("mouseover", moveNoButton);
 
-container.addEventListener("touchmove", (e) => {
+noBtn.addEventListener("touchstart", (e) => {
   e.preventDefault();
-
-  const touch = e.touches[0];
-  moveNoButton(touch.clientX, touch.clientY);
+  moveNoButton();
 }, { passive: false });
+
+noBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  moveNoButton();
+});
 
 yesBtn.addEventListener("click", () => {
   container.style.display = "none";
