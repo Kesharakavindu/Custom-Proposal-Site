@@ -49,10 +49,9 @@ body {
 .buttons {
   margin-top: 20px;
   position: relative;
-  height: 50px;
+  height: 60px;
 }
 
-/* NO BUTTON STYLE TOUCH KARALA NA */
 button {
   padding: 10px 20px;
   border: none;
