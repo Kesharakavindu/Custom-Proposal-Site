@@ -34,7 +34,7 @@ body {
   border-radius: 20px;
   text-align: center;
   position: relative;
-  width: 340px;
+   width: clamp(300px, 32vw, 360px);
 }
 
 .image {
