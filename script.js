@@ -31,17 +31,15 @@ function moveNoButton(clientX, clientY) {
   }
 }
 
+container.addEventListener("mousemove", (e) => {
+  moveNoButton(e.clientX, e.clientY);
+});
+
 container.addEventListener("touchmove", (e) => {
   e.preventDefault();
 
   const touch = e.touches[0];
-
-  const fakeEvent = new MouseEvent("mousemove", {
-    clientX: touch.clientX,
-    clientY: touch.clientY
-  });
-
-  container.dispatchEvent(fakeEvent);
+  moveNoButton(touch.clientX, touch.clientY);
 }, { passive: false });
 
 yesBtn.addEventListener("click", () => {
