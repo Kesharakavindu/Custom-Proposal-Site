@@ -34,7 +34,7 @@ body {
   border-radius: 20px;
   text-align: center;
   position: relative;
-   width: clamp(300px, 32vw, 360px);
+  width: clamp(300px, 32vw, 360px);
 }
 
 .image {
@@ -56,6 +56,17 @@ button {
   cursor: pointer;
   position: absolute;
   transition: transform 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+button:focus,
+button:active,
+button:focus-visible {
+  outline: none;
+  box-shadow: none;
 }
 
 #yesBtn {
