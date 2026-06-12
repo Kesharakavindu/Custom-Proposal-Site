@@ -35,7 +35,6 @@ body {
   text-align: center;
   position: relative;
   width: 340px;
-  max-width: calc(100vw - 30px);
 }
 
 .image {
