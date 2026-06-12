@@ -1,44 +1,47 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
+html, body {
+  min-height: 100%;
+}
+
 body {
-  margin: 0;
-  min-height: 100vh;
   background: #ffd6e0;
+  font-family: Arial, sans-serif;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: Arial, sans-serif;
   padding: 20px 15px 55px;
   overflow-x: hidden;
 }
 
 .title {
-  margin: 0 0 20px;
   text-align: center;
   font-size: clamp(28px, 8vw, 45px);
+  margin-bottom: 20px;
 }
 
 .question-container {
   background: #fff0f5;
-  padding: clamp(20px, 6vw, 30px);
+  width: min(92vw, 340px);
+  padding: 25px;
   border-radius: 20px;
   text-align: center;
   position: relative;
-  width: min(100%, 360px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
 .image {
-  width: min(45vw, 140px);
+  width: min(35vw, 120px);
   margin-bottom: 10px;
 }
 
 .question-container h2 {
   font-size: clamp(20px, 5vw, 26px);
-  margin: 10px 0;
 }
 
 .buttons {
@@ -48,10 +51,10 @@ body {
 }
 
 button {
-  padding: 10px 22px;
+  padding: 10px 20px;
   border: none;
   border-radius: 20px;
-  font-size: clamp(15px, 4vw, 17px);
+  font-size: 16px;
   cursor: pointer;
   position: absolute;
   transition: transform 0.25s ease;
@@ -60,13 +63,13 @@ button {
 #yesBtn {
   background: #ff4d6d;
   color: white;
-  left: 18%;
+  left: 15%;
 }
 
 #noBtn {
   background: #ff8fa3;
   color: white;
-  right: 18%;
+  right: 15%;
 }
 
 .result-container {
@@ -85,7 +88,7 @@ button {
   left: 0;
   width: 100%;
   text-align: center;
-  font-size: clamp(11px, 3vw, 14px);
+  font-size: 13px;
   color: rgba(85,85,85,0.7);
   padding: 0 10px;
 }
@@ -96,12 +99,21 @@ button {
 
 @media (max-width: 480px) {
   body {
-    justify-content: flex-start;
-    padding-top: 45px;
+    padding-top: 15px;
+    padding-bottom: 55px;
+  }
+
+  .title {
+    margin-bottom: 15px;
+  }
+
+  .question-container {
+    width: 92vw;
+    padding: 20px;
   }
 
   .buttons {
-    height: 70px;
+    height: 65px;
   }
 
   #yesBtn {
@@ -111,6 +123,15 @@ button {
   #noBtn {
     right: 12%;
   }
+
+  button {
+    font-size: 15px;
+    padding: 9px 18px;
+  }
+
+  .footer {
+    font-size: 11px;
+  }
 }
 
 @keyframes fadeIn {
@@ -118,6 +139,7 @@ button {
     opacity: 0;
     transform: scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
