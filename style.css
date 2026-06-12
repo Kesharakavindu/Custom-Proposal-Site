@@ -1,57 +1,72 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  height: 100vh;
+  min-height: 100vh;
   background: #ffd6e0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-family: Arial, sans-serif;
+  padding: 20px 15px 55px;
+  overflow-x: hidden;
 }
 
 .title {
-  margin-bottom: 20px;
+  margin: 0 0 20px;
+  text-align: center;
+  font-size: clamp(28px, 8vw, 45px);
 }
 
 .question-container {
   background: #fff0f5;
-  padding: 30px;
+  padding: clamp(20px, 6vw, 30px);
   border-radius: 20px;
   text-align: center;
   position: relative;
-  width: 300px;
+  width: min(100%, 360px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
 .image {
-  width: 120px;
+  width: min(45vw, 140px);
   margin-bottom: 10px;
+}
+
+.question-container h2 {
+  font-size: clamp(20px, 5vw, 26px);
+  margin: 10px 0;
 }
 
 .buttons {
   margin-top: 20px;
   position: relative;
-  height: 50px;
+  height: 60px;
 }
 
 button {
-  padding: 10px 20px;
+  padding: 10px 22px;
   border: none;
   border-radius: 20px;
-  font-size: 16px;
+  font-size: clamp(15px, 4vw, 17px);
   cursor: pointer;
   position: absolute;
+  transition: transform 0.25s ease;
 }
 
 #yesBtn {
   background: #ff4d6d;
   color: white;
-  left: 40px;
+  left: 18%;
 }
 
 #noBtn {
   background: #ff8fa3;
   color: white;
-  right: 40px;
+  right: 18%;
 }
 
 .result-container {
@@ -59,39 +74,52 @@ button {
   text-align: center;
 }
 
-button {
-    transition: transform 0.25s ease;
-    position: absolute;
-}
-
-.result-container {
-  display: none;
-  text-align: center;
-}
-
-.result-img {
-  width: 220px;
-}
-
-.result-img {
-  animation: fadeIn 0.05s ease;
+#result-img {
+  width: min(80vw, 260px);
+  animation: fadeIn 0.5s ease;
 }
 
 .footer {
-    position: fixed;
-    bottom: 10px;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    font-size: 14px;
-    color: rgba(85,85,85,0.7);
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: clamp(11px, 3vw, 14px);
+  color: rgba(85,85,85,0.7);
+  padding: 0 10px;
 }
 
 .footer p {
-    margin: 0;
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  body {
+    justify-content: flex-start;
+    padding-top: 45px;
+  }
+
+  .buttons {
+    height: 70px;
+  }
+
+  #yesBtn {
+    left: 12%;
+  }
+
+  #noBtn {
+    right: 12%;
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
