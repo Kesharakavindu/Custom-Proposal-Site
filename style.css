@@ -30,11 +30,11 @@ body {
 
 .question-container {
   background: #fff0f5;
-  padding: 30px;
+  padding: 35px;
   border-radius: 20px;
   text-align: center;
   position: relative;
-  width: clamp(300px, 40vw, 350px);
+  width: clamp(300px, 40vw, 300px);
 }
 
 .image {
