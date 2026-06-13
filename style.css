@@ -124,8 +124,8 @@ button:focus-visible {
   display: block;
   width: 100%;
   max-width: 320px;
-  border-radius: 15px;
   margin: 0 auto;
+  border-radius: 15px;
 }
 
 .accepted-text {
@@ -159,7 +159,6 @@ button:focus-visible {
   .accepted-gif {
     width: 100%;
     max-width: 320px;
-    transform: translateX(20px);
   }
 }
 
