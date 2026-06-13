@@ -50,8 +50,6 @@ body {
 .image {
   width: 120px;
   margin-bottom: 10px;
-  pointer-events: none;
-  -webkit-user-drag: none;
 }
 
 .buttons {
@@ -107,50 +105,6 @@ button:focus-visible {
   margin: 0;
 }
 
-@media (max-width: 480px) {
-  .question-container {
-    max-width: calc(100vw - 30px);
-  }
-
-  .title {
-    font-size: 32px;
-  }
-
-  .image {
-    width: 95px;
-  }
-
-  .footer {
-    font-size: 11px;
-  }
-
-  .accepted-card {
-    width: calc(100vw - 40px);
-    padding: 25px;
-  }
-  
-  .accepted-gif {
-    display: block;
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
-  
-    transform: translateX(20px);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
 .accepted-card {
   background: #fff0f5;
   padding: 35px;
@@ -178,6 +132,47 @@ button:focus-visible {
   margin-top: 20px;
   font-size: clamp(16px, 4vw, 20px);
   font-weight: bold;
+}
+
+@media (max-width: 480px) {
+  .question-container {
+    max-width: calc(100vw - 30px);
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .image {
+    width: 95px;
+  }
+
+  .footer {
+    font-size: 11px;
+  }
+
+  .accepted-card {
+    width: calc(100vw - 40px);
+    padding: 25px;
+  }
+
+  .accepted-gif {
+    width: 100%;
+    max-width: 320px;
+    transform: translateX(20px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes popupCard {
