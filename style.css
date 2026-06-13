@@ -129,12 +129,13 @@ button:focus-visible {
     padding: 25px;
   }
   
-  .accepted-gif{
-    display:white;
-    width:100%;
-    max-width:320px;
-    margin:0 auto;
-    border:3px solid red;
+  .accepted-gif {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  
+    transform: translateX(20px);
   }
 }
 
